@@ -1,0 +1,18 @@
+---
+- name: Change SSH Default Port
+  hosts: web2
+  gather_facts: no
+  tasks:
+    - name: Ping
+      ping: 
+
+    - name: Change SSH Port to 2222
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^Port 2222'
+        line: 'Port 7789'
+    
+    - name: Restart sshd
+      systemd:
+        name: sshd
+        state: restarted

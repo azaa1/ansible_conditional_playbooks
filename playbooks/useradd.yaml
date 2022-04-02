@@ -1,0 +1,13 @@
+---
+- name: Add users
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Add bob
+      user: 
+        name: bob
+    - name: Add amy
+      user: 
+        name: amy
+
+    
